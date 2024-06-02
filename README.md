@@ -12,3 +12,7 @@ Run:
 7. "php artisan serve"
 8. buka terminal baru dan jalankan "npm run dev"
 9. aplikasi akan berjalan pada 127.0.0.1:8000
+
+Akun admin:
+- email: admin@email.com
+- pw: admin123
