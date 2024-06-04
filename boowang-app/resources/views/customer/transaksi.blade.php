@@ -39,7 +39,7 @@
                     <div class="col-md-8 mx-auto">
                         <div class="row px-2 py-4 border rounded overflow-hidden shadow-sm align-items-center">
                             <div class="col-3">
-                                {{ $transaction->tanggal }}
+                                {{ $transaction->created_at }}
                             </div>
                             <div class="col-3 text-center">
                                 {{ $transaction->place->nama }}
@@ -51,7 +51,11 @@
                                 {{ $transaction->jumlah_orang }}
                             </div>
                             <div class="col-2 text-center">
-                                {{ $transaction->total }}
+                                @if ($transaction->status === 'Cancelled' )
+                                    <span class="fst-italic">Cancelled</span>
+                                @else
+                                    {{ $transaction->total }}
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -60,7 +64,7 @@
         @else
             <div class="row mb-2 mt-3">
                 <div class="col-md-8 mx-auto">
-                    <div class="fw-bold text-center fs-5">Anda belum memiliki riwayat pembelian</div>
+                    <div class="fw-bold text-center fs-5">Anda belum memiliki transaksi</div>
                 </div>
             </div>
         @endif

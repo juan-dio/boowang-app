@@ -111,18 +111,21 @@ class CustomerController extends Controller
                 ->orWhere('tanggal_tiket', '<', Carbon::today());
         })->where('status', 'Unpaid')->update(['status' => 'Cancelled']);
 
-        $transactions = Transaction::where('user_id', auth()->user()->id)->where('tanggal_tiket', '>=', Carbon::today())->orderBy('tanggal_tiket', 'asc')->paginate(10);
+        $transactions = Transaction::where('user_id', auth()->user()->id)->where('tanggal_tiket', '>=', Carbon::today())->where('status', '<>' ,'Cancelled')->orderBy('tanggal_tiket', 'asc')->paginate(10);
         return view('customer.tiket', [
             'page' => 'Tiket Saya',
             'transactions' => $transactions
         ]);
     }
 
-    public function showRiwayat(Request $request): View
+    public function showTransaksi(Request $request): View
     {
-        $transactions = Transaction::where('user_id', auth()->user()->id)->where('tanggal_tiket', '<', Carbon::today())->where('status', 'Paid')->orderBy('tanggal_tiket', 'asc')->paginate(10);
-        return view('customer.riwayat', [
-            'page' => 'Riwayat Pembelian',
+        $transactions = Transaction::where('user_id', auth()->user()->id)->where('status', 'Cancelled')->orWhere(function ($query) { 
+            $query->where('status', 'Paid')
+                ->where('tanggal_tiket', '<', Carbon::today());
+        })->orderBy('tanggal_tiket', 'asc')->paginate(10);
+        return view('customer.transaksi', [
+            'page' => 'Transaksi',
             'transactions' => $transactions
         ]);
     }

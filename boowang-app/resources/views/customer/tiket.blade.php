@@ -14,7 +14,7 @@
         @endif
         <div class="row p-2 mb-2">
             <div class="col-md-8 mx-auto">
-                <div class="row border rounded overflow-hidden shadow-sm align-items-center">
+                <div class="row p-2 border rounded overflow-hidden shadow-sm align-items-center">
                     <div class="col-3 text-center fw-bold">
                         Tempat Wisata
                     </div>

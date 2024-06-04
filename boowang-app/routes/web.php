@@ -21,7 +21,7 @@ Route::get('/bayar/{transaction}', [CustomerController::class, 'bayar'])->middle
 Route::post('/bayar/{transaction}', [CustomerController::class, 'payBayar'])->middleware('auth');
 Route::post('/bayar/{transaction}/cancel', [CustomerController::class, 'cancelBayar'])->middleware('auth');
 Route::get('/tiket', [CustomerController::class, 'showTiket'])->name('tiket')->middleware('auth');
-Route::get('/riwayat', [CustomerController::class, 'showRiwayat'])->name('riwayat')->middleware('auth');
+Route::get('/transaksi', [CustomerController::class, 'showTransaksi'])->name('transaksi')->middleware('auth');
 Route::get('/profil', [CustomerController::class, 'showProfil'])->name('profil')->middleware('auth');
 Route::get('/cektiket', [CustomerController::class, 'cekTiket'])->middleware('auth');
 

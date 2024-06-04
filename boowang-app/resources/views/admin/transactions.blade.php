@@ -21,6 +21,25 @@
                     </div>
 
                     <div class="card-body bg-white">
+                        <form method="GET">
+                            <div class="row mb-2">
+                                <label for="date" class="col-form-label col-1 text-end">Bulan</label>
+                                <div class="col-2">
+                                    <select class="form-select" name="date" id="date" onchange="this.form.submit()">
+                                        @foreach ($periods as $period)
+                                            @if ($period->month == $month && $period->year == $year)
+                                                <option selected value="{{ $period->month }}-{{ $period->year }}">{{ date("F", mktime(0, 0, 0, $period->month, 10)) }} {{ $period->year }}</option>
+                                            @else
+                                                <option value="{{ $period->month }}-{{ $period->year }}">{{ date("F", mktime(0, 0, 0, $period->month, 10)) }} {{ $period->year }}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+                                {{-- <div class="col-1">
+                                    <button type="submit" class="btn btn-success">Filter</button>
+                                </div> --}}
+                            </div>
+                        </form>
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
                                 <thead class="thead text-center">
@@ -41,7 +60,7 @@
                                             <td>{{ ++$i }}</td>
                                             <td>{{ $transaction->user->name }}</td>
                                             <td>{{ $transaction->place->nama }}</td>
-                                            <td>{{ $transaction->tanggal }}</td>
+                                            <td>{{ $transaction->created_at }}</td>
                                             <td>{{ $transaction->tanggal_tiket }}</td>
                                             <td>{{ $transaction->jumlah_orang }}</td>
                                             <td>{{ $transaction->total }}</td>

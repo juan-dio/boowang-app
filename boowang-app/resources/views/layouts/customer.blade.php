@@ -33,7 +33,7 @@
                                 <a class="nav-link {{ Request::is('tiket*') ? 'active' : '' }}" href="{{ route('tiket') }}">Tiket saya</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{ Request::is('riwayat*') ? 'active' : '' }}" href="{{ route('riwayat') }}">Riwayat</a>
+                                <a class="nav-link {{ Request::is('transaksi*') ? 'active' : '' }}" href="{{ route('transaksi') }}">Transaksi</a>
                             </li>
                         </ul>
                         <ul class="navbar-nav ms-auto">
