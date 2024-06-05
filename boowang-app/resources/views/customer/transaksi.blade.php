@@ -15,10 +15,10 @@
         <div class="row p-2 mb-2">
             <div class="col-md-8 mx-auto">
                 <div class="row p-2 border rounded overflow-hidden shadow-sm align-items-center">
-                    <div class="col-3 text-center fw-bold">
+                    <div class="col-2 text-center fw-bold">
                         Tanggal Pembelian
                     </div>
-                    <div class="col-3 text-center fw-bold">
+                    <div class="col-2 text-center fw-bold">
                         Tempat Wisata
                     </div>
                     <div class="col-2 text-center fw-bold">
@@ -26,6 +26,9 @@
                     </div>
                     <div class="col-2 text-center fw-bold">
                         Jumlah Orang
+                    </div>
+                    <div class="col-2 text-center fw-bold">
+                        Metode Pembayaran
                     </div>
                     <div class="col-2 text-center fw-bold">
                         Total
@@ -38,10 +41,10 @@
                 <div class="row px-2 mb-2">
                     <div class="col-md-8 mx-auto">
                         <div class="row px-2 py-4 border rounded overflow-hidden shadow-sm align-items-center">
-                            <div class="col-3">
+                            <div class="col-2">
                                 {{ $transaction->created_at }}
                             </div>
-                            <div class="col-3 text-center">
+                            <div class="col-2 text-center">
                                 {{ $transaction->place->nama }}
                             </div>
                             <div class="col-2 text-center">
@@ -49,6 +52,9 @@
                             </div>
                             <div class="col-2 text-center">
                                 {{ $transaction->jumlah_orang }}
+                            </div>
+                            <div class="col-2 text-center">
+                                {{ $transaction->metode }}
                             </div>
                             <div class="col-2 text-center">
                                 @if ($transaction->status === 'Cancelled' )

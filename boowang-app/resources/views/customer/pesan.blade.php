@@ -43,14 +43,17 @@
                         <input type="number" name="jumlah_orang" class="form-control @error('jumlah_orang') is-invalid @enderror" value="{{ old('jumlah_orang') }}" id="jumlah_orang" placeholder="Jumlah Orang">
                         {!! $errors->first('jumlah_orang', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
                     </div>
-                    {{-- <div class="form-group mb-2">
-                        <label for="pembayaran" class="form-label">{{ __('Pembayaran') }}</label>
-                        <select class="form-select" name="pembayaran" id="pembayaran">
-                            <option value="BRI" @if(old('pembayaran') == '') selected @endif>BRI</option>
-                            <option value="DANA" @if(old('pembayaran') == '') selected @endif>DANA</option>
+                    <div class="form-group mb-2">
+                        <label for="metode" class="form-label">{{ __('Metode Pembayaran') }}</label>
+                        <select class="form-select" name="metode" id="metode">
+                            <option value="BRI" @if(old('metode') == 'BRI') selected @endif>BRI</option>
+                            <option value="BCA" @if(old('metode') == 'BCA') selected @endif>BCA</option>
+                            <option value="BNI" @if(old('metode') == 'BNI') selected @endif>BNI</option>
+                            <option value="DANA" @if(old('metode') == 'DANA') selected @endif>DANA</option>
+                            <option value="Gopay" @if(old('metode') == 'Gopay') selected @endif>Gopay</option>
                         </select>
-                        {!! $errors->first('pembayaran', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
-                    </div> --}}
+                        {!! $errors->first('metode', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
+                    </div>
             
                 </div>
                 <div class="col-md-10 mt-2 mx-auto">

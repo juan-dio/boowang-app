@@ -27,11 +27,7 @@
                                 <div class="col-2">
                                     <select class="form-select" name="date" id="date" onchange="this.form.submit()">
                                         @foreach ($periods as $period)
-                                            @if ($period->month == $month && $period->year == $year)
-                                                <option selected value="{{ $period->month }}-{{ $period->year }}">{{ date("F", mktime(0, 0, 0, $period->month, 10)) }} {{ $period->year }}</option>
-                                            @else
-                                                <option value="{{ $period->month }}-{{ $period->year }}">{{ date("F", mktime(0, 0, 0, $period->month, 10)) }} {{ $period->year }}</option>
-                                            @endif
+                                            <option @if ($period->month == $month && $period->year == $year) selected @endif value="{{ $period->month }}-{{ $period->year }}">{{ date("F", mktime(0, 0, 0, $period->month, 10)) }} {{ $period->year }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -51,6 +47,7 @@
                                         <th>Tanggal Tiket</th>
                                         <th>Jumlah Orang</th>
                                         <th>Total</th>
+                                        <th>Metode</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
@@ -64,6 +61,7 @@
                                             <td>{{ $transaction->tanggal_tiket }}</td>
                                             <td>{{ $transaction->jumlah_orang }}</td>
                                             <td>{{ $transaction->total }}</td>
+                                            <td>{{ $transaction->metode }}</td>
                                             <td>{{ $transaction->status }}</td>
                                             
                                         </tr>

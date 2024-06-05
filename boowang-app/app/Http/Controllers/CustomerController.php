@@ -69,6 +69,7 @@ class CustomerController extends Controller
             'place_id' => 'required',
             'jumlah_orang' => 'required|numeric|integer|gte:1|lte:sisa_tiket',
             'tanggal_tiket' => 'required|date',
+            'metode' => 'required'
         ]);
 
         $place = Place::find($pesan['place_id']);

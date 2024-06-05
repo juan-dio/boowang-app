@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 02 Jun 2024 pada 11.22
+-- Waktu pembuatan: 05 Jun 2024 pada 18.55
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -143,7 +143,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (3, '0001_01_01_000002_create_jobs_table', 1),
 (4, '2024_05_19_114430_create_categories_table', 1),
 (5, '2024_05_19_115153_create_places_table', 1),
-(6, '2024_05_19_115844_create_transactions_table', 1);
+(6, '2024_05_19_115844_create_transactions_table', 1),
+(8, '2024_06_05_214209_add_metode_to_transactions_table', 2);
 
 -- --------------------------------------------------------
 
@@ -221,7 +222,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('YJCWKr7E7DL8qxwUPtIyKGe91Oj7mnTQAv6mdD5w', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoidnpHRnlzQTZaa2Y2bmlSNGw1a2lDTXZvVVRsRU1JRkZOVElXdU5adiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjg6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC93aXNhdGEiO31zOjM6InVybCI7YTowOnt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9', 1717319846);
+('NJLA4v93oG8QcN4ra0BYvIIXPjSjEZdik72Jc8PL', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiTzdRSG1HZUdKb0FqQjdhSnhRMmI5dENtMnhmRWFOTDY2TXA5cWhGSCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMCI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1717605516),
+('T0N96JU21df95c7Pu7lf4Hc9iSjsaHiQWcXVP8VY', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoicGFLVGtlSmVxa0Jzbmp0MVFicnJkb09iMkRwUXpibklldzFraHdqUyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6Mjg6Imh0dHA6Ly8xMjcuMC4wLjE6ODAwMC93aXNhdGEiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjM6InVybCI7YTowOnt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTt9', 1717516914);
 
 -- --------------------------------------------------------
 
@@ -238,6 +240,7 @@ CREATE TABLE `transactions` (
   `jumlah_orang` int(11) NOT NULL,
   `tanggal_tiket` date NOT NULL,
   `total` int(11) NOT NULL,
+  `metode` varchar(255) NOT NULL DEFAULT 'DANA',
   `status` varchar(255) NOT NULL DEFAULT 'Unpaid',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -247,11 +250,18 @@ CREATE TABLE `transactions` (
 -- Dumping data untuk tabel `transactions`
 --
 
-INSERT INTO `transactions` (`id`, `user_id`, `place_id`, `code`, `tanggal`, `jumlah_orang`, `tanggal_tiket`, `total`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 'FHUIFYYG', '2024-06-02 04:23:39', 10, '2024-06-01', 100000, 'Cancelled', '2024-05-31 16:47:03', '2024-06-02 04:23:39'),
-(2, 1, 4, 'BFCZ0O3U', '2024-05-31 17:01:58', 10, '2024-05-31', 50000, 'Cancelled', '2024-05-31 16:48:41', '2024-05-31 17:01:58'),
-(3, 1, 1, 'R5FINKPV', '2024-06-02 06:07:04', 10, '2024-06-02', 100000, 'Unpaid', '2024-06-02 06:07:04', '2024-06-02 06:07:04'),
-(4, 1, 1, 'KNKGMB6P', '2024-06-02 06:07:34', 10, '2024-06-02', 100000, 'Paid', '2024-06-02 06:07:31', '2024-06-02 06:07:34');
+INSERT INTO `transactions` (`id`, `user_id`, `place_id`, `code`, `tanggal`, `jumlah_orang`, `tanggal_tiket`, `total`, `metode`, `status`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 'FHUIFYYG', '2024-06-02 04:23:39', 10, '2024-06-01', 100000, 'DANA', 'Cancelled', '2024-05-31 16:47:03', '2024-06-02 04:23:39'),
+(2, 1, 4, 'BFCZ0O3U', '2024-05-31 17:01:58', 10, '2024-05-31', 50000, 'DANA', 'Cancelled', '2024-05-31 16:48:41', '2024-05-31 17:01:58'),
+(3, 1, 1, 'R5FINKPV', '2024-06-03 13:48:39', 10, '2024-06-02', 100000, 'DANA', 'Cancelled', '2024-06-02 06:07:04', '2024-06-03 13:48:39'),
+(4, 1, 1, 'KNKGMB6P', '2024-06-02 06:07:34', 10, '2024-06-02', 100000, 'DANA', 'Paid', '2024-06-02 06:07:31', '2024-06-02 06:07:34'),
+(5, 1, 9, '1OE8QE3T', '2024-06-02 13:03:39', 5, '2024-06-07', 15000, 'DANA', 'Paid', '2024-06-02 13:01:18', '2024-06-02 13:03:39'),
+(6, 2, 1, 'GVHNTVPS', '2024-06-03 13:48:39', 10, '2024-06-02', 100000, 'DANA', 'Cancelled', '2024-06-02 13:07:05', '2024-06-03 13:48:39'),
+(7, 2, 13, 'YNZFEXNF', '2024-06-03 14:20:37', 10, '2024-06-03', 100000, 'DANA', 'Cancelled', '2024-06-03 14:19:46', '2024-06-03 14:20:37'),
+(8, 2, 10, 'WUXMZMCX', '2024-06-03 14:32:08', 2, '2024-06-04', 10000, 'DANA', 'Paid', '2024-06-03 14:32:05', '2024-06-03 14:32:08'),
+(9, 2, 10, 'H2NUOFSN', '2024-06-05 14:55:26', 5, '2024-06-06', 25000, 'BNI', 'Unpaid', '2024-06-05 14:55:26', '2024-06-05 14:55:26'),
+(10, 2, 4, 'YR1JZRYN', '2024-06-05 15:09:29', 5, '2024-06-07', 25000, 'BRI', 'Unpaid', '2024-06-05 15:09:29', '2024-06-05 15:09:29'),
+(11, 2, 9, 'W4W4OFEL', '2024-06-05 15:55:08', 10, '2024-06-06', 30000, 'BRI', 'Paid', '2024-06-05 15:54:37', '2024-06-05 15:55:08');
 
 -- --------------------------------------------------------
 
@@ -276,7 +286,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `is_admin`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@gmail.com', 1, NULL, '$2y$12$gaBGTB9c.k2HdYXtt21DQuOWr3zDUencf0GtTN3KjCnRY.sJfZqhW', NULL, '2024-05-31 11:54:38', '2024-05-31 11:54:38');
+(1, 'admin', 'admin@gmail.com', 1, NULL, '$2y$12$gaBGTB9c.k2HdYXtt21DQuOWr3zDUencf0GtTN3KjCnRY.sJfZqhW', NULL, '2024-05-31 11:54:38', '2024-05-31 11:54:38'),
+(2, 'Juan', 'juan@gmail.com', 0, NULL, '$2y$12$br1xG0a6sDnZVlPtccQqWODKDYNBccYqE.A9VGOEsny1i.a8tCd9G', NULL, '2024-06-02 13:06:45', '2024-06-02 13:06:45');
 
 --
 -- Indexes for dumped tables
@@ -389,7 +400,7 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `places`
@@ -401,13 +412,13 @@ ALTER TABLE `places`
 -- AUTO_INCREMENT untuk tabel `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
