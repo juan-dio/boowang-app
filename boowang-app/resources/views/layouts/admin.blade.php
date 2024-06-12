@@ -63,9 +63,9 @@
                                 </li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
-                                    <form action="{{ route('logout') }}" method="post">
-                                    @csrf
-                                        <button type="submit" class="dropdown-item">
+                                    <form action="{{ route('logout') }}" method="post" id="form-logout">
+                                        @csrf
+                                        <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modal-logout" id="btn-logout">
                                             <i data-feather="log-out" class="bi me-2" style="width: 24px; height: 24px"></i> Log Out
                                         </button>
                                     </form>
@@ -85,6 +85,25 @@
         <main class="container px-3" style="margin-left: 280px;">
             @yield('content')
         </main>
+
+        <div class="modal fade" id="modal-logout" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="konfirmasiLogout" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="konfirmasiLogout">Konfirmasi Log Out</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Apakah anda yakin ingin log out?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-success" onclick="document.getElementById('form-logout').submit()">{{ __('Konfirmasi') }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>

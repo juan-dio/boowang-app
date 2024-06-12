@@ -70,11 +70,11 @@
 
                                             <td>
                                                 <form action="{{ route('places.destroy', $place->id) }}" method="POST" class="d-flex justify-content-center gap-1">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('places.show', $place->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-warning" href="{{ route('places.edit', $place->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('places.show', $place->id) }}">{{ __('Show') }}</a>
+                                                    <a class="btn btn-sm btn-warning" href="{{ route('places.edit', $place->id) }}">{{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="event.preventDefault(); confirm('Are you sure to delete?') ? this.closest('form').submit() : false;"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="event.preventDefault(); confirm('Are you sure to delete?') ? this.closest('form').submit() : false;">{{ __('Delete') }}</button>
                                                 </form>
                                             </td>
                                         </tr>

@@ -43,7 +43,7 @@
                                 <div class="form-group mb-2 mb20">
                                     <strong>Image:</strong>
                                     <div class="border border-dark-subtle rounded p-1" style="width: 250px">
-                                        <img src="{{ Vite::asset('storage/' . $place->image) }}" class="img-fluid" alt="{{ $place->nama }}">
+                                        <img src="{{ '/storage/' . $place->image }}" class="img-fluid" alt="{{ $place->nama }}">
                                     </div>
                                 </div>
                                 <div class="form-group mb-2 mb20">

@@ -34,7 +34,7 @@
                     <div class="col-md-10 mx-auto">
                         <div class="row g-0 border rounded overflow-hidden mb-4 shadow-sm position-relative">
                             <div class="col-md-5 order-md-1" style="height: 250px">
-                                <img src="{{ Vite::asset('storage/' . $place->image) }}" alt="{{ $place->nama }}" class="w-100 h-100 object-fit-cover">
+                                <img src="{{ '/storage/' . $place->image }}" alt="{{ $place->nama }}" class="w-100 h-100 object-fit-cover">
                             </div>
                             <div class="col-md-7 order-md-0 p-4 d-flex flex-column">
                                 <a href="@if (request('search')) /wisata?category={{ $place->category->nama }}&search={{ request('search') }} @else /wisata?category={{ $place->category->nama }} @endif" class="z-2"><strong class="d-inline-block mb-2 text-primary-emphasis">{{ $place->category->nama }}</strong></a>

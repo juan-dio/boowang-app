@@ -8,7 +8,7 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="{{ Vite::asset('storage/wisata-images/jaddih2.jpg') }}" alt="Bangkalan" width="100%" height="100%" class="object-fit-cover" style="filter: brightness(60%);">
+                <img src="{{ '/storage/wisata-images/jaddih.jpg' }}" alt="Bangkalan" width="100%" height="100%" class="object-fit-cover" style="filter: brightness(60%);">
                 <div class="container">
                     <div class="carousel-caption text-start">
                         <h1 class="fw-bold">Boo<span class="text-warning">Wang</span></h1>
@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="{{ Vite::asset('storage/wisata-images/bangkalan.jpg') }}" alt="Bangkalan" width="100%" height="100%" class="object-fit-cover" style="filter: brightness(60%);">
+                <img src="{{ '/storage/wisata-images/bangkalan.jpg' }}" alt="Bangkalan" width="100%" height="100%" class="object-fit-cover" style="filter: brightness(60%);">
         
                 <div class="container">
                     <div class="carousel-caption">
@@ -44,7 +44,7 @@
         <div class="row">
             @foreach ($places as $place)    
             <div class="col-lg-4">
-                <img src="{{ Vite::asset('storage/' . $place->image) }}" alt="{{ $place->nama }}" class="rounded-circle object-fit-cover mb-2" width="140" height="140">
+                <img src="{{ '/storage/' . $place->image }}" alt="{{ $place->nama }}" class="rounded-circle object-fit-cover mb-2" width="140" height="140">
                 <h2>{{ $place->nama }}</h2>
                 <p>{{ substr(strip_tags($place->deskripsi), 0, 150) }}...</p>
                 <p><a href="wisata/{{ $place->id }}" class="btn btn-success" href="#">Lihat detail &raquo;</a></p>

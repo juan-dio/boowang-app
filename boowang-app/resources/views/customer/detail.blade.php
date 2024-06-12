@@ -22,7 +22,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10 p-2">
                 <div class="overflow-hidden rounded" style="max-height: 350px">
-                    <img src="{{ Vite::asset('storage/' . $place->image) }}" class="img-fluid w-100 object-fit-cover" alt="{{ $place->nama }}">
+                    <img src="{{ '/storage/' . $place->image }}" class="img-fluid w-100 object-fit-cover" alt="{{ $place->nama }}">
                 </div>
             </div>
         </div>

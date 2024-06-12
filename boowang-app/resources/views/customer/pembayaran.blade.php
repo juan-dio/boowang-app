@@ -7,24 +7,23 @@
                 <div class="fw-bold fs-5 text-center mb-1">
                     Lakukan pembayaran sebelum:
                 </div>
-                <div class="fw-bold fs-5 text-center mb-1" id="countdown">
+                <div class="fw-bold fs-4 text-center mb-1" id="countdown">
                     
                 </div>
-                {{-- <canvas id="canvas" class="d-block mx-auto"></canvas> --}}
                 <div class="w-50 mx-auto my-3">
                     @if ($transaction->metode === 'BRI')
-                        <img src="{{ Vite::asset('storage/logo-bayar/bri.png') }}" class="object-fit-cover w-100" alt="BRI">
+                        <img src="{{ '/storage/logo-bayar/bri.png' }}" class="object-fit-cover w-100" alt="BRI">
                     @elseif ($transaction->metode === 'BCA')
-                        <img src="{{ Vite::asset('storage/logo-bayar/bca.png') }}" class="object-fit-cover w-100" alt="BCA">
+                        <img src="{{ '/storage/logo-bayar/bca.png' }}" class="object-fit-cover w-100" alt="BCA">
                     @elseif ($transaction->metode === 'BNI')
-                        <img src="{{ Vite::asset('storage/logo-bayar/bni.png') }}" class="object-fit-cover w-100" alt="BNI">
+                        <img src="{{ '/storage/logo-bayar/bni.png' }}" class="object-fit-cover w-100" alt="BNI">
                     @elseif ($transaction->metode === 'DANA')
-                        <img src="{{ Vite::asset('storage/logo-bayar/dana.png') }}" class="object-fit-cover w-100" alt="DANA">
+                        <img src="{{ '/storage/logo-bayar/dana.png' }}" class="object-fit-cover w-100" alt="DANA">
                     @elseif ($transaction->metode === 'GOPAY')
-                        <img src="{{ Vite::asset('storage/logo-bayar/gopay.png') }}" class="object-fit-cover w-100" alt="GOPAY">
+                        <img src="{{ '/storage/logo-bayar/gopay.png' }}" class="object-fit-cover w-100" alt="GOPAY">
                     @endif
                 </div>
-                <div class="fw-bold fs-5 text-center" id="total">
+                <div class="fw-bold fs-4 text-center" id="total">
                     Rp {{ number_format($transaction->total, 2, ',','.') }}
                 </div>
             </div>
@@ -45,18 +44,10 @@
     </div>
     <script>
         document.addEventListener("DOMContentLoaded", (e) => {
-            // const canvas = document.getElementById('canvas')
-            // const text = "Pembayaran sebesar Rp {{ $transaction->total }} berhasil."
             let tanggalTransaksi = "{{ $transaction->tanggal }}"
             tanggalTransaksi = tanggalTransaksi.split(" ")
             let countDownDate = new Date(tanggalTransaksi[0] + "T" + tanggalTransaksi[1])
             countDownDate.setDate(countDownDate.getDate() + 1)
-
-            // QRCode.toCanvas(canvas, text, {
-            //     width: 250
-            // }, function (error) {
-            //     if (error) console.error(error)
-            // });
 
             const countdown = setInterval(function() {
                 let now = new Date().getTime();
@@ -68,8 +59,8 @@
                 let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-                document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
-                + minutes + "m " + seconds + "s ";
+                document.getElementById("countdown").innerHTML = days + ":" + hours + ":"
+                + minutes + ":" + seconds + "";
 
                 if (distance < 0) {
                     clearInterval(countdown);

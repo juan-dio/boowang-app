@@ -124,7 +124,7 @@ class CustomerController extends Controller
         $transactions = Transaction::where('user_id', auth()->user()->id)->where('status', 'Cancelled')->orWhere(function ($query) { 
             $query->where('status', 'Paid')
                 ->where('tanggal_tiket', '<', Carbon::today());
-        })->orderBy('tanggal_tiket', 'asc')->paginate(10);
+        })->orderBy('tanggal_tiket', 'asc')->paginate(8);
         return view('customer.transaksi', [
             'page' => 'Transaksi',
             'transactions' => $transactions

@@ -15,8 +15,7 @@ import Chart from 'chart.js/auto';
 window.Chart = Chart;
 
 import Trix from "trix";
-// window.Trix = Trix;
 
-import.meta.glob([
-  './public/**',
-]);
+// import.meta.glob([
+//   './public/**',
+// ]);
