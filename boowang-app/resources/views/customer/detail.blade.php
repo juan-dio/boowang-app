@@ -28,7 +28,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-3 p-2">
-                <a href="" class="d-flex align-items-center p-2 text-decoration-none link-dark rounded" style="background-color: #ddd">
+                <a href="/wisata?category={{ $place->category->nama }}" class="d-flex align-items-center p-2 text-decoration-none link-dark rounded" style="background-color: #ddd">
                     <div class="rounded-circle p-2 bg-primary text-white me-2">
                         <i data-feather="grid" style="width: 25px; height: 25px"></i>
                     </div>
