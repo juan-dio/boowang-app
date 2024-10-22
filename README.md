@@ -1,6 +1,8 @@
+Repositori untuk tugas proyek mata kuliah Rekayasa Perangkat Lunak.
+
 Install:
 - Nodejs
-- composer
+- Composer
 
 Run:
 1. Nyalakan MySql server
